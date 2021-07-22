@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+sourceCompatibility = JavaVersion.VERSION_15
+targetCompatibility = JavaVersion.VERSION_15
+
+dependencies {
+    implementation('org.junit.jupiter:junit-jupiter-api')
+    implementation('org.junit.jupiter:junit-jupiter-engine')
+    implementation('org.assertj:assertj-core')
+    implementation('org.mockito:mockito-core')
+    implementation('org.mockito:mockito-junit-jupiter')
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.with {
+        encoding = 'UTF-8'
+    }
+}
